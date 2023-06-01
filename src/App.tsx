@@ -1,12 +1,10 @@
 import './App.css'
-import Footer from './Components/Footer/Footer'
-import Header from './Components/Header/Header'
+import MainPage from './Pages/MainPage'
 
 function App() {
   return (
     <>
-      <Header />
-      <Footer />
+      <MainPage />
     </>
   )
 }

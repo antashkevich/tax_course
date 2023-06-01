@@ -1,0 +1,17 @@
+.productsCard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px 15px;
+}
+
+@media all and (max-width: 991px) {
+  .productsCard {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productImage {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
