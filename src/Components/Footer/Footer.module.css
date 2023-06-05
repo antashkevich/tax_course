@@ -1,7 +1,7 @@
 .footer {
   border-top: 1px solid var(--color-grey-400);
-  padding-top: 24px;
-  padding-bottom: 24px;
+  box-sizing: border-box;
+  padding: 24px 40px;
 }
 
 .footerContainer {

@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import styles from "./ProductsWrapper.module.css"
+import { Link } from "react-router-dom";
+import { ProductProps } from "src/types/types";
 
-type ProductProps = {
-  id: number,
-  image: string,
-  title: number,
-  description: string,
-  price: string
-}
-
-const ProductsWrapper = () => {
+export const ProductsWrapper = () => {
   const [dataProducts, setDataProducts] = useState<ProductProps[]>([])
 
   useEffect(() => {
@@ -23,17 +17,19 @@ const ProductsWrapper = () => {
 
   return (
     <>
-      <h2>Lorem, ipsum.</h2>
       <div className={styles.productsCard}>
-        {dataProducts.map(product => <div className={styles.productCard} key={product.id}>
-          <div><img className={styles.productImage} src={product.image} /></div>
+      {dataProducts.map(product => <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
+          <div>
+            <img className={styles.productImage} src={product.image} />
+          </div>
           <h2>{product.title}</h2>
           <p>{product.description}</p>
           <p>{product.price}</p>
-        </div>)}
+        </Link>)}
       </div>
     </>
   )
 }
 
-export default ProductsWrapper
+
+{/*  */}

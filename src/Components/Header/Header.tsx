@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css"
 
-const Header = () => {
+export const Header = () => {
   return (
     <header>
       <div className={styles.headerTop}>
-        <div className={`container ${styles.headerContainer}`}>
-          <a href="./">
+        <div className={styles.headerContainer}>
+          <Link to={"./"}>
             <svg className={styles.logoIcon} viewBox="0 0 105 48" fill="none">
               <circle
                 opacity="0.2"
@@ -52,7 +53,7 @@ const Header = () => {
                 fill="#111212"
               ></path>
             </svg>
-          </a>
+          </Link>
 
           <div>
             <button className={styles.btnLang}>ENG</button>
@@ -67,7 +68,7 @@ const Header = () => {
       </div>
 
       <div className={styles.headerBottom}>
-        <div className={`container ${styles.headerContainer}`}>
+        <div className={styles.headerContainer}>
           <nav>
             <ul className={styles.navList}>
               <li>
@@ -103,5 +104,3 @@ const Header = () => {
     </header>
   );
 }
-
-export default Header

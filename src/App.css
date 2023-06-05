@@ -20,8 +20,3 @@ body {
   color: var(--color-dark);
   background-color: var(--color-white);
 }
-
-.container {
-  box-sizing: border-box;
-  padding: 0 40px;
-}
