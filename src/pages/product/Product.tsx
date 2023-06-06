@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import { Product as ProductType } from 'types/entities/product'
+import styles from "./product.module.css"
 
 export const Product = () => {
   const { productId } = useParams();
@@ -20,7 +21,7 @@ export const Product = () => {
     <>
       <div>
         <div>
-            <img src={dataProduct?.image} />
+            <img className={styles.productImage} src={dataProduct?.image} />
           </div>
           <h2>{dataProduct?.title}</h2>
           <p>{dataProduct?.description}</p>

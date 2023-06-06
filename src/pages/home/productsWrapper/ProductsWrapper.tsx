@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import styles from "./ProductsWrapper.module.css"
+import { ProductProps } from "src/types/types";
+import { ProductCard } from "../productCard";
 import { Link } from "react-router-dom";
 import { Product as ProductType } from "types/entities/product";
 
@@ -18,14 +20,7 @@ export const ProductsWrapper = () => {
   return (
     <>
       <div className={styles.productsCard}>
-      {dataProducts.map(product => <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
-          <div>
-            <img className={styles.productImage} src={product.image} />
-          </div>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-        </Link>)}
+        {dataProducts.map(product => <ProductCard product={product} key={product.id} />)}
       </div>
     </>
   )
