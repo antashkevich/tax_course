@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ProductProps } from "src/types/types";
 
 export const ProductsWrapper = () => {
-  const [dataProducts, setDataProducts] = useState<ProductProps[]>([])
+  const [dataProducts, setDataProducts] = useState<Array<ProductProps>>([])
 
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products?limit=20')
