@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios'
 import styles from "./ProductsWrapper.module.css"
 import { Link } from "react-router-dom";
-import { ProductProps } from "src/types/types";
+import { Product as ProductType } from "types/entities/product";
 
 export const ProductsWrapper = () => {
-  const [dataProducts, setDataProducts] = useState<Array<ProductProps>>([])
+  const [dataProducts, setDataProducts] = useState<Array<ProductType>>([])
 
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products?limit=20')

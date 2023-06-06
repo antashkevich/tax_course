@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { ProductProps } from "src/types/types";
+
+import { Product as ProductType } from 'types/entities/product'
 
 export const Product = () => {
   const { productId } = useParams();
-  const [dataProduct, setDataProduct] = useState<ProductProps>({})
+  const [dataProduct, setDataProduct] = useState<null | ProductType>(null)
 
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${productId}`)
@@ -19,11 +20,11 @@ export const Product = () => {
     <>
       <div>
         <div>
-            <img src={dataProduct.image} />
+            <img src={dataProduct?.image} />
           </div>
-          <h2>{dataProduct.title}</h2>
-          <p>{dataProduct.description}</p>
-          <p>{dataProduct.price}</p>
+          <h2>{dataProduct?.title}</h2>
+          <p>{dataProduct?.description}</p>
+          <p>{dataProduct?.price}</p>
       </div>
     </>
   )

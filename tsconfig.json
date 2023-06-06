@@ -16,13 +16,18 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "paths": {
+      "types/*": ["src/types/*"],
+      "pages/*": ["src/pages/*"],
+      "components/*": ["src/components/*"],
+    },
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
   },
-  "include": ["src"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

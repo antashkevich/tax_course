@@ -1,9 +1,9 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
-import { Header } from './components/header'
-import { Footer } from './components/footer'
-import { Home } from './pages/home'
-import { Product } from './pages/product';
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
+import { Home } from 'pages/home'
+import { Product } from 'pages/product';
 
 function App() {
   return (
