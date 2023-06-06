@@ -1,13 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { ProductProps } from "src/types/types";
+import { Product } from "types/entities/product.ts";
 import styles from "./productCard.module.css"
 
-interface IProps {
-  product: ProductProps
+type Props = {
+  product: Product
 }
 
-export const ProductCard = ({product}: IProps) => {
+export const ProductCard = ({product}: Props) => {
 
   return (
     <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
