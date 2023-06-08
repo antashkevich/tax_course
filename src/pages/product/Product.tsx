@@ -19,14 +19,19 @@ export const Product = () => {
 
   return (
     <>
-      <div>
-        <div>
-            <img className={styles.productImage} src={dataProduct?.image} />
+      {
+        dataProduct ?
+          <div>
+            <div>
+                <img className={styles.productImage} src={dataProduct?.image} />
+              </div>
+              <h2>{dataProduct.title}</h2>
+              <p>{dataProduct.description}</p>
+              <p>{dataProduct.price}</p>
           </div>
-          <h2>{dataProduct?.title}</h2>
-          <p>{dataProduct?.description}</p>
-          <p>{dataProduct?.price}</p>
-      </div>
+          :
+          <div className={styles.loader}>Loader</div>
+      }
     </>
   )
 }

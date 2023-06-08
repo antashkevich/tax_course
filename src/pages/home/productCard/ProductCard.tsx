@@ -11,7 +11,7 @@ export const ProductCard: React.FC<Props> = ({ product}) => {
 
   return (
     <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
-      <div>
+      <div className={styles.productImageContainer}>
         <img className={styles.productImage} src={product.image} />
       </div>
       <h2>{product.title}</h2>
