@@ -31,17 +31,3 @@
   gap: 16px;
   margin-bottom: 16px;
 }
-
-.loader {
-  font-size: var(--font-size-h2-extra);
-  line-height: var(--line-heights-h2-extra);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: beige;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}

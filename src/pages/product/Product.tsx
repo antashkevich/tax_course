@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { Product as ProductType } from 'types/entities/product'
 import styles from "./product.module.css"
+import { Loader } from "components/loader";
 
 export const Product = () => {
   const { productId } = useParams();
@@ -30,7 +31,7 @@ export const Product = () => {
               <p>{dataProduct.price}</p>
           </div>
           :
-          <div className={styles.loader}>Loader</div>
+          <Loader />
       }
     </>
   )

@@ -3,6 +3,7 @@ import axios from 'axios'
 import styles from "./ProductsWrapper.module.css"
 import { ProductCard } from "../productCard";
 import { Product, ProductsCategories } from "types/entities/product";
+import { Loader } from "components/loader";
 
 export const ProductsWrapper = () => {
   const [dataProducts, setDataProducts] = useState<null | Product[]>(null)
@@ -53,7 +54,7 @@ export const ProductsWrapper = () => {
             {dataFilterProducts?.map(product => <ProductCard product={product} key={product.id} />)}
           </div>
           :
-          <div className={styles.loader}>Loader</div>
+          <Loader />
       }
     </main>
   )
