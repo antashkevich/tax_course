@@ -9,6 +9,7 @@ export const ProductsWrapper = () => {
   const [dataProducts, setDataProducts] = useState<null | Product[]>(null)
   const [dataFilterProducts, setDataFilterProducts] = useState<null | Product[]>(null)
   const [amountProducts, setAmountProducts] = useState<number>(10)
+  const [btnActiveClass, setActiveClass] = useState<string>("all")
 
   const ProductCategory: ProductsCategories = {
     all: 'all',
@@ -28,18 +29,15 @@ export const ProductsWrapper = () => {
   }, [amountProducts]);
 
   const filterCategoryProducts = (category: string) => {
+    setActiveClass(category)
+
     if (category === 'all') {
       return setDataFilterProducts(dataProducts)
     }
     if (dataProducts) {
       const arr = dataProducts.filter(product => product.category === category)
-      setDataFilterProducts(arr)
+      return setDataFilterProducts(arr)
     }
-  }
-
-  const getCategoryName = (category: string) => {
-    const name = ProductCategory[category].charAt(0).toUpperCase() + ProductCategory[category].slice(1)
-    return name
   }
 
   const addMoreProducts = () => {
@@ -47,11 +45,34 @@ export const ProductsWrapper = () => {
     setAmountProducts(getAmountProducts)
   }
 
+
+  const getCategoryName = (category: string) => {
+    const name = ProductCategory[category].charAt(0).toUpperCase() + ProductCategory[category].slice(1)
+    return name
+  }
+
+  const getBtnClass = (category: string) => {
+    if (ProductCategory[category] === btnActiveClass) {
+      return `${styles.btnFilter} ${styles.btnFilterActive}`
+    }
+
+    return `${styles.btnFilter}`
+  }
+  const getFilterBtns = () => {
+    const categoriesBtns = Object.keys(ProductCategory)
+  
+    return categoriesBtns.map((category) => <button 
+      className={`${getBtnClass(category)}`} 
+      onClick={() => filterCategoryProducts(ProductCategory[category])} 
+      key={category}>
+        {getCategoryName(category)}
+      </button>)
+  }
+
   return (
     <main className={styles.main}>
-      <div className={styles.sortContainer}>
-        {Object.keys(ProductCategory).map((category) => <button onClick={() => filterCategoryProducts(ProductCategory[category])} key={category}>{getCategoryName(category)}</button>
-        )}
+      <div className={styles.filterContainer}>
+        {getFilterBtns()}
       </div>
       {
         dataProducts ?

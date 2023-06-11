@@ -13,7 +13,7 @@
   }
 }
 
-.sortContainer {
+.filterContainer {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -26,4 +26,12 @@
   border-radius: 8px;
   padding: 10px;
   margin: 50px auto;
+}
+
+.btnFilter {
+  font-weight: var(--font-weights-semibold);
+}
+
+.btnFilterActive {
+  color: var(--color-deep-blue);
 }
