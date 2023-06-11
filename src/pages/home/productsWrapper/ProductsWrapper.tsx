@@ -8,6 +8,7 @@ import { Loader } from "components/loader";
 export const ProductsWrapper = () => {
   const [dataProducts, setDataProducts] = useState<null | Product[]>(null)
   const [dataFilterProducts, setDataFilterProducts] = useState<null | Product[]>(null)
+  const [amountProducts, setAmountProducts] = useState<number>(10)
 
   const ProductCategory: ProductsCategories = {
     all: 'all',
@@ -18,13 +19,13 @@ export const ProductsWrapper = () => {
   }
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products?limit=20')
+    axios.get(`https://fakestoreapi.com/products?limit=${amountProducts}`)
       .then(function (res) {
         setDataProducts(res.data);
         setDataFilterProducts(res.data);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [amountProducts]);
 
   const filterCategoryProducts = (category: string) => {
     if (category === 'all') {
@@ -41,6 +42,11 @@ export const ProductsWrapper = () => {
     return name
   }
 
+  const addMoreProducts = () => {
+    const getAmountProducts = amountProducts + 5
+    setAmountProducts(getAmountProducts)
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.sortContainer}>
@@ -55,6 +61,7 @@ export const ProductsWrapper = () => {
           :
           <Loader />
       }
+      <button className={styles.btnMore} onClick={addMoreProducts}>Show more</button>
     </main>
   )
 }
