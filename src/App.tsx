@@ -5,7 +5,7 @@ import { Footer } from 'components/footer'
 import { Home } from 'pages/home'
 import { Product } from 'pages/product';
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />

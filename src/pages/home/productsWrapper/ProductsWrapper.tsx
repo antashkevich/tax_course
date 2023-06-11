@@ -43,7 +43,6 @@ export const ProductsWrapper = () => {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>Make their day extra special with a handcrafted bouquet.</h1>
       <div className={styles.sortContainer}>
         {Object.keys(ProductCategory).map((category) => <button onClick={() => filterCategoryProducts(ProductCategory[category])} key={category}>{getCategoryName(category)}</button>
         )}
