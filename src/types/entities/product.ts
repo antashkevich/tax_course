@@ -10,3 +10,7 @@ export type Product = {
 export type ProductsCategories = {
   [key: string]: string
 }
+
+export type Lang = {
+  [key: string]: string
+}
