@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./ProductsWrapper.module.css";
+import styles from "./Products.module.css";
 import { ProductCard } from "../productCard";
-import { Product, ProductsCategories } from "types/entities/product";
+import { Product } from "types/entities/product";
 import { Loader } from "components/loader";
+import { ProductsCategories } from "types/entities/productCategories";
 
-export const ProductsWrapper = () => {
-  const [dataProducts, setDataProducts] = useState<null | Product[]>(null);
-  const [dataFilterProducts, setDataFilterProducts] = useState<
+export const Products = () => {
+  const [data, setData] = useState<null | Product[]>(null);
+  const [dataFilter, setDataFilter] = useState<
     null | Product[]
   >(null);
   const [amountProducts, setAmountProducts] = useState<number>(10);
@@ -25,8 +26,8 @@ export const ProductsWrapper = () => {
     axios
       .get(`https://fakestoreapi.com/products?limit=${amountProducts}`)
       .then(function (res) {
-        setDataProducts(res.data);
-        setDataFilterProducts(res.data);
+        setData(res.data);
+        setDataFilter(res.data);
       })
       .catch(e => console.log(e));
   }, [amountProducts]);
@@ -35,11 +36,11 @@ export const ProductsWrapper = () => {
     setActiveClass(category);
 
     if (category === "all") {
-      return setDataFilterProducts(dataProducts);
+      return setDataFilter(data);
     }
-    if (dataProducts) {
-      const arr = dataProducts.filter(product => product.category === category);
-      return setDataFilterProducts(arr);
+    if (data) {
+      const arr = data.filter(product => product.category === category);
+      return setDataFilter(arr);
     }
   };
 
@@ -79,9 +80,9 @@ export const ProductsWrapper = () => {
   return (
     <main className={styles.main}>
       <div className={styles.filterContainer}>{getFilterBtns()}</div>
-      {dataProducts ? (
+      {data ? (
         <div className={styles.productsCard}>
-          {dataFilterProducts?.map(product => (
+          {dataFilter?.map(product => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>

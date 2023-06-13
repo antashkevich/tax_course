@@ -6,11 +6,3 @@ export type Product = {
   price: string,
   category?: string
 }
-
-export type ProductsCategories = {
-  [key: string]: string
-}
-
-export type Lang = {
-  [key: string]: string
-}
