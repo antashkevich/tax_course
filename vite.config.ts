@@ -8,7 +8,7 @@ const resolveBase = (path: string): string => resolve(__dirname, './src', path);
 export default defineConfig({
   resolve: {
     alias: {
-      "types": resolveBase('./types/entities'),
+      "types": resolveBase('./types'),
       'components': resolveBase('./components'),
       'pages': resolveBase('./pages'),
       'images': resolveBase('./assets/images'),

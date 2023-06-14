@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.btnLang {
+.buttonLang {
   font-size: var(--font-size-link);
   font-weight: var(--font-weights-semibold);
   line-height: var(--line-heights-link);

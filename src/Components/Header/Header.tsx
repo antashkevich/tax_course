@@ -32,8 +32,8 @@ export const Header = () => {
             </ul>
           </nav>
 
-          <button className={styles.btnCart}>
-            <Icon name="cart" className={styles.btnCartIcon} />
+          <button className={styles.buttonCart}>
+            <Icon name="cart" className={styles.buttonCartIcon} />
             Cart
           </button>
         </div>
