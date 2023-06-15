@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Product } from "types/entities/product";
-import { ProductsCategories } from "types/entities/productCategories";
+import { ProductCategoriesKeys, ProductsCategories } from 'types/entities/productCategories'
 import { Loader } from "components/loader";
 import { ProductCard } from "../productCard";
 import { Filter } from "../filter";
 import styles from "./Products.module.css";
 
-type ProductsCategoriesValue = keyof typeof ProductsCategories;
 
 export const Products = () => {
   const [data, setData] = useState<null | Product[]>(null);
   const [amountProducts, setAmountProducts] = useState<number>(6);
-  const [buttonActiveClass, setButtonActiveClass] = useState<string>("all");
+  const [buttonActiveClass, setButtonActiveClass] = useState<ProductCategoriesKeys>("all");
   const [isEnabledButtonMore, setIsEnabledButtonMore] = useState<boolean>(true);
   const [loadButtonMore, setLoadButtonMore] = useState<boolean>(false);
 
@@ -22,7 +21,7 @@ export const Products = () => {
       buttonActiveClass === "all"
         ? `${baseUrl}/?limit=${amountProducts}`
         : `${baseUrl}/category/${
-            ProductsCategories[buttonActiveClass as ProductsCategoriesValue]
+            ProductsCategories[buttonActiveClass]
           }?limit=${amountProducts}`;
     axios
       .get(url)
@@ -36,7 +35,7 @@ export const Products = () => {
       .catch(e => console.log(e));
   }, [buttonActiveClass, amountProducts]);
 
-  const filterCategoryProducts = (category: string) => {
+  const filterCategoryProducts = (category: ProductCategoriesKeys) => {
     setData(null);
     setIsEnabledButtonMore(true);
     setAmountProducts(6);
@@ -67,9 +66,7 @@ export const Products = () => {
   return (
     <main className={styles.main}>
       {/* <div className={styles.filterContainer}>{getFilterButtons()}</div> */}
-      <Filter
-        categories = {ProductsCategories}
-      />
+      <Filter  />
       <div className={styles.productsCard}>
         {data ? (
           data

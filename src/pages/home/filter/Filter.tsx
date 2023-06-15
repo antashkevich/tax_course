@@ -1,24 +1,25 @@
 import { FC, useState } from "react";
 import styles from "./Filter.module.css";
-import { Categories } from "types/entities/filter";
+import { ProductsCategories, ProductCategoriesKeys } from 'types/entities/productCategories'
 
-export const Filter: FC<Categories> = ({ categories }) => {
-  type categoriesValue = keyof typeof categories
 
-  const [buttonActiveClass, setButtonActiveClass] = useState<string>("all");
+export const Filter: FC = ({ buttonActiveClass, onChange }) => {
 
-  const filterCategoryProducts = (category: string) => {
+
+  const [buttonActiveClass, setButtonActiveClass] = useState<ProductCategoriesKeys>("all");
+
+  const filterCategoryProducts = (category: ProductCategoriesKeys) => {
     setButtonActiveClass(category);
   };
 
-  const getCategoryName = (category: string) => {
+  const getCategoryName = (category: ProductCategoriesKeys) => {
     const name =
-      categories[category as categoriesValue].charAt(0).toUpperCase() +
-      categories[category as categoriesValue].slice(1);
+      ProductsCategories[category].charAt(0).toUpperCase() +
+      ProductsCategories[category].slice(1);
     return name;
   };
 
-  const getButtonClass = (category: string) => {
+  const getButtonClass = (category: ProductCategoriesKeys) => {
     if (category === buttonActiveClass) {
       return `${styles.buttonFilter} ${styles.buttonFilterActive}`;
     }
@@ -26,9 +27,10 @@ export const Filter: FC<Categories> = ({ categories }) => {
     return `${styles.buttonFilter}`;
   };
 
+
   return (
     <div className={styles.filterContainer}>
-      {Object.keys(categories).map(category => (
+      {(Object.keys(ProductsCategories) as ProductCategoriesKeys[]).map(category => (
         <button
           className={`${getButtonClass(category)}`}
           onClick={() =>

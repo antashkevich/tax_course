@@ -5,3 +5,6 @@ export enum  ProductsCategories {
   jewelery = "jewelery",
   electronics = "electronics",
 }
+
+export type ProductCategoriesKeys = keyof typeof ProductsCategories
+
