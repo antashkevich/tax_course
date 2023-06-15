@@ -3,7 +3,7 @@ import styles from "./Filter.module.css";
 import { Categories } from "types/entities/filter";
 
 export const Filter: FC<Categories> = ({ categories }) => {
-  type CarLiteralType = keyof typeof categories
+  type categoriesValue = keyof typeof categories
 
   const [buttonActiveClass, setButtonActiveClass] = useState<string>("all");
 
@@ -13,8 +13,8 @@ export const Filter: FC<Categories> = ({ categories }) => {
 
   const getCategoryName = (category: string) => {
     const name =
-      categories[category as CarLiteralType].charAt(0).toUpperCase() +
-      categories[category as CarLiteralType].slice(1);
+      categories[category as categoriesValue].charAt(0).toUpperCase() +
+      categories[category as categoriesValue].slice(1);
     return name;
   };
 
