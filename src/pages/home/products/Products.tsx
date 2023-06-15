@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./Products.module.css";
-import { ProductCard } from "../productCard";
 import { Product } from "types/entities/product";
-import { Loader } from "components/loader";
 import { ProductsCategories } from "types/entities/productCategories";
+import { Loader } from "components/loader";
+import { ProductCard } from "../productCard";
+import { Filter } from "../filter";
+import styles from "./Products.module.css";
 
 type ProductsCategoriesValue = keyof typeof ProductsCategories;
 
@@ -48,38 +49,27 @@ export const Products = () => {
     setLoadButtonMore(true);
   };
 
-  const getCategoryName = (category: ProductsCategoriesValue) => {
-    const name =
-      ProductsCategories[category].charAt(0).toUpperCase() +
-      ProductsCategories[category].slice(1);
-    return name;
-  };
+  // const getCategoryName = (category: ProductsCategoriesValue) => {
+  //   const name =
+  //     ProductsCategories[category].charAt(0).toUpperCase() +
+  //     ProductsCategories[category].slice(1);
+  //   return name;
+  // };
 
-  const getButtonClass = (category: ProductsCategoriesValue) => {
-    if (category === buttonActiveClass) {
-      return `${styles.buttonFilter} ${styles.buttonFilterActive}`;
-    }
+  // const getButtonClass = (category: ProductsCategoriesValue) => {
+  //   if (category === buttonActiveClass) {
+  //     return `${styles.buttonFilter} ${styles.buttonFilterActive}`;
+  //   }
 
-    return `${styles.buttonFilter}`;
-  };
-
-  const getFilterButtons = () => {
-    return Object.keys(ProductsCategories).map(category => (
-      <button
-        className={`${getButtonClass(category as ProductsCategoriesValue)}`}
-        onClick={() =>
-          filterCategoryProducts(category as ProductsCategoriesValue)
-        }
-        key={category}
-      >
-        {getCategoryName(category as ProductsCategoriesValue)}
-      </button>
-    ));
-  };
+  //   return `${styles.buttonFilter}`;
+  // };
 
   return (
     <main className={styles.main}>
-      <div className={styles.filterContainer}>{getFilterButtons()}</div>
+      {/* <div className={styles.filterContainer}>{getFilterButtons()}</div> */}
+      <Filter
+        categories = {ProductsCategories}
+      />
       <div className={styles.productsCard}>
         {data ? (
           data
