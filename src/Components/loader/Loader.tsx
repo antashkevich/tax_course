@@ -1,8 +1,9 @@
 import { LoaderType } from 'types/entities/loader';
 import styles from './Loader.module.css'
 import cn from 'classnames';
+import { FC } from 'react'
 
-export const Loader: React.FC<LoaderType> = ({staticPosition}) => {
+export const Loader: FC<LoaderType> = ({staticPosition}) => {
   return (
     <div className={cn(styles.loader, {
       [styles.loaderStatic]: staticPosition,

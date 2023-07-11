@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import { Icon } from 'components/icon';
-import { LangsDropdown } from 'components/langsDropdown';
+import { LanguagesDropdown } from 'components/languagesDropdown';
 
 export const Header = () => {
   return (
@@ -11,7 +11,7 @@ export const Header = () => {
           <Link to={'./'}>
             <Icon name='logo' className={styles.logoIcon} />
           </Link>
-          <LangsDropdown />
+          <LanguagesDropdown />
         </div>
       </div>
 

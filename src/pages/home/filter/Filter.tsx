@@ -1,6 +1,7 @@
-import styles from './Filter.module.css';
-import { ProductsCategories, ProductCategoriesKeys } from 'types/entities/productCategories'
-import cn from 'classnames';
+import styles from './Filter.module.css'
+import { ProductCategoriesKeys, ProductsCategories } from 'types/entities/productCategories'
+import cn from 'classnames'
+import { FC } from 'react'
 
 type FilterPopsType  = {
   setButtonActiveClass: (category: ProductCategoriesKeys) => void,
@@ -8,7 +9,7 @@ type FilterPopsType  = {
   filterProducts: (category: ProductCategoriesKeys) => void
 }
 
-export const Filter: React.FC<FilterPopsType> = ({ 
+export const Filter: FC<FilterPopsType> = ({
   setButtonActiveClass,
   buttonActiveClass,
   filterProducts
@@ -20,10 +21,8 @@ export const Filter: React.FC<FilterPopsType> = ({
   };
 
   const getCategoryName = (category: ProductCategoriesKeys) => {
-    const name =
-      ProductsCategories[category].charAt(0).toUpperCase() +
+    return ProductsCategories[category].charAt(0).toUpperCase() +
       ProductsCategories[category].slice(1);
-    return name;
   };
 
   return (

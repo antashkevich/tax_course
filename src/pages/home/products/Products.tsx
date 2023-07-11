@@ -49,8 +49,8 @@ export const Products = () => {
   };
 
   return (
-    <main className={styles.main}>
-      <Filter 
+    <main>
+      <Filter
         buttonActiveClass={buttonActiveClass}
         setButtonActiveClass={setButtonActiveClass}
         filterProducts={filterProducts} />

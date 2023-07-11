@@ -1,11 +1,11 @@
 import { LangsList, LangsListValue } from 'types/entities/langs';
-import styles from './LangsDropdown.module.css';
+import styles from './LanguagesDropdown.module.css';
 import { useState } from 'react';
 import cn from 'classnames';
 
-export const LangsDropdown = () => {
+export const LanguagesDropdown = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [lang, setLang] = useState<`${LangsList}`>(LangsList.eng);
+  const [lang, setLang] = useState<LangsList>(LangsList.eng);
 
   const actionDropdownLang = () => {
     setIsOpen(!isOpen);
@@ -19,7 +19,7 @@ export const LangsDropdown = () => {
 
   return (
     <div className={styles.langsContainer}>
-      <button onClick={() => actionDropdownLang()} className={styles.buttonLang}>
+      <button onClick={actionDropdownLang} className={styles.buttonLang}>
         {lang}
       </button>
       <ul
@@ -27,9 +27,9 @@ export const LangsDropdown = () => {
           [styles.langListOpen]: isOpen,
         })}
       >
-        {Object.keys(LangsList).map(language => (
-          <button onClick={() => chooseLang(language as LangsListValue)} key={language}>
-            {LangsList[language as LangsListValue]}
+        {(Object.keys(LangsList) as LangsListValue[]).map((language) => (
+          <button onClick={() => chooseLang(language)} key={language}>
+            {LangsList[language]}
           </button>
         ))}
       </ul>
