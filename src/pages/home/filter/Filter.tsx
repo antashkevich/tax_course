@@ -1,15 +1,22 @@
-import { FC, useState } from "react";
-import styles from "./Filter.module.css";
+import styles from './Filter.module.css';
 import { ProductsCategories, ProductCategoriesKeys } from 'types/entities/productCategories'
+import cn from 'classnames';
 
+type FilterPopsType  = {
+  setButtonActiveClass: (category: ProductCategoriesKeys) => void,
+  buttonActiveClass: ProductCategoriesKeys,
+  filterProducts: (category: ProductCategoriesKeys) => void
+}
 
-export const Filter: FC = ({ buttonActiveClass, onChange }) => {
-
-
-  const [buttonActiveClass, setButtonActiveClass] = useState<ProductCategoriesKeys>("all");
+export const Filter: React.FC<FilterPopsType> = ({ 
+  setButtonActiveClass,
+  buttonActiveClass,
+  filterProducts
+ }) => {
 
   const filterCategoryProducts = (category: ProductCategoriesKeys) => {
     setButtonActiveClass(category);
+    filterProducts(category)
   };
 
   const getCategoryName = (category: ProductCategoriesKeys) => {
@@ -19,20 +26,13 @@ export const Filter: FC = ({ buttonActiveClass, onChange }) => {
     return name;
   };
 
-  const getButtonClass = (category: ProductCategoriesKeys) => {
-    if (category === buttonActiveClass) {
-      return `${styles.buttonFilter} ${styles.buttonFilterActive}`;
-    }
-
-    return `${styles.buttonFilter}`;
-  };
-
-
   return (
     <div className={styles.filterContainer}>
       {(Object.keys(ProductsCategories) as ProductCategoriesKeys[]).map(category => (
         <button
-          className={`${getButtonClass(category)}`}
+          className={cn(styles.buttonFilter, {
+            [styles.buttonFilterActive]: category === buttonActiveClass,
+          })}
           onClick={() =>
             filterCategoryProducts(category)
           }

@@ -1,4 +1,5 @@
 import sprite from "icons/icon-sprites.svg";
+import cn from 'classnames';
 
 const COLORS = {
   dark: "#111212",
@@ -31,7 +32,8 @@ export const Icon = ({ name, className, color, size, dataTest }: Props) => {
   const rgbFrom = (color: string) => COLORS[color as keyof typeof COLORS] || color;
 
   const baseClassName = `icon-${name}`;
-  const classes = [`icon ${baseClassName}`, className];
+
+  const classes = cn('icon', baseClassName, className);
 
   const style = {
     fill: color ? rgbFrom(color) : undefined,
@@ -40,7 +42,7 @@ export const Icon = ({ name, className, color, size, dataTest }: Props) => {
   };
 
   return (
-    <svg className={classes.join(" ")} data-test={dataTest} style={style}>
+    <svg className={classes} data-test={dataTest} style={style}>
       <use xlinkHref={`${sprite}#${name}`} />
     </svg>
   );

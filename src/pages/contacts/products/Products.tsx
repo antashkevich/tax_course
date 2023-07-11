@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Product } from 'types/entities/product';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Product } from "types/entities/product";
 import { ProductCategoriesKeys, ProductsCategories } from 'types/entities/productCategories'
-import { Loader } from 'components/loader';
-import { ProductCard } from '../productCard';
-import { Filter } from '../filter';
-import styles from './Products.module.css';
+import { Loader } from "components/loader";
+import styles from "./Products.module.css";
+import { Filter } from "pages/home/filter";
+import { ProductCard } from "pages/home/productCard";
 
 
 export const Products = () => {
   const [data, setData] = useState<null | Product[]>(null);
   const [amountProducts, setAmountProducts] = useState<number>(6);
-  const [buttonActiveClass, setButtonActiveClass] = useState<ProductCategoriesKeys>('all');
+  const [buttonActiveClass, setButtonActiveClass] = useState<ProductCategoriesKeys>("all");
   const [isEnabledButtonMore, setIsEnabledButtonMore] = useState<boolean>(true);
   const [loadButtonMore, setLoadButtonMore] = useState<boolean>(false);
 
   useEffect(() => {
-    const baseUrl = 'https://fakestoreapi.com/products';
+    const baseUrl = "https://fakestoreapi.com/products";
     const url =
-      buttonActiveClass === 'all'
+      buttonActiveClass === "all"
         ? `${baseUrl}/?limit=${amountProducts}`
         : `${baseUrl}/category/${
             ProductsCategories[buttonActiveClass]
@@ -50,7 +50,7 @@ export const Products = () => {
 
   return (
     <main className={styles.main}>
-      <Filter 
+      <Filter
         buttonActiveClass={buttonActiveClass}
         setButtonActiveClass={setButtonActiveClass}
         filterProducts={filterProducts} />
@@ -65,7 +65,7 @@ export const Products = () => {
       </div>
       {isEnabledButtonMore && (
         <button className={styles.buttonMore} onClick={showMoreProducts}>
-          {loadButtonMore ? 'Load...' : 'Show more'}
+          {loadButtonMore ? "Load..." : "Show more"}
         </button>
       )}
     </main>

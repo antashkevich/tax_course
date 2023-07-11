@@ -1,8 +1,7 @@
-import { LangsList } from "types/entities/langs";
-import styles from "./LangsDropdown.module.css";
-import { useState } from "react";
-
-type LangsListValue = keyof typeof LangsList
+import { LangsList, LangsListValue } from 'types/entities/langs';
+import styles from './LangsDropdown.module.css';
+import { useState } from 'react';
+import cn from 'classnames';
 
 export const LangsDropdown = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -24,9 +23,9 @@ export const LangsDropdown = () => {
         {lang}
       </button>
       <ul
-        className={`${styles.langList} ${
-          isOpen ? styles.langListOpen : styles.langListClose
-        }`}
+        className={cn(styles.langList, {
+          [styles.langListOpen]: isOpen,
+        })}
       >
         {Object.keys(LangsList).map(language => (
           <button onClick={() => chooseLang(language as LangsListValue)} key={language}>

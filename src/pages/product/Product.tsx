@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 import { Product as ProductType } from 'types/entities/product'
-import styles from "./product.module.css"
-import { Loader } from "components/loader";
+import styles from './product.module.css'
+import { Loader } from 'components/loader';
 
 export const Product = () => {
   const { productId } = useParams();
