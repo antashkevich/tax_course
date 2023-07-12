@@ -10,7 +10,7 @@
 
 @media all and (max-width: 991px) {
   .productsCard {
-      grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

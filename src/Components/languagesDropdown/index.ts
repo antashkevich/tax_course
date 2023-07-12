@@ -1,1 +1,1 @@
-export { LanguagesDropdown } from './LanguagesDropdown.tsx';
+export { LanguagesDropdown } from "./LanguagesDropdown.tsx";

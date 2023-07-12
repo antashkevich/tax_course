@@ -15,7 +15,7 @@ export const Contacts = () => {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = data => console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
     <div className={styles.main}>

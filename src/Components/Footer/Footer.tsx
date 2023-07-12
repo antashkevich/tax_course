@@ -1,4 +1,4 @@
-import styles from './Footer.module.css'
+import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
@@ -8,16 +8,25 @@ export const Footer = () => {
           <h3 className={styles.blockTitle}>Categories</h3>
           <ul className={styles.list}>
             <li className={styles.listItem}>
-              <a className={styles.link} href=''>Flowers</a>
+              <a className={styles.link} href="">
+                Flowers
+              </a>
             </li>
             <li className={styles.listItem}>
-              <a className={styles.link} href=''>Gifts </a>
+              <a className={styles.link} href="">
+                Gifts{" "}
+              </a>
             </li>
             <li className={styles.listItem}>
-              <a className={styles.link} href=''>Roses </a>
+              <a className={styles.link} href="">
+                Roses{" "}
+              </a>
             </li>
             <li className={styles.listItem}>
-              <a className={styles.link} href=''> Occasion</a>
+              <a className={styles.link} href="">
+                {" "}
+                Occasion
+              </a>
             </li>
           </ul>
         </div>
@@ -26,14 +35,18 @@ export const Footer = () => {
           <h3 className={styles.blockTitle}>Information</h3>
           <ul className={styles.list}>
             <li className={styles.listItem}>
-              <a className={styles.link} href=''>Shop</a>
+              <a className={styles.link} href="">
+                Shop
+              </a>
             </li>
             <li className={styles.listItem}>
-              <a className={styles.link} href=''>About us</a>
+              <a className={styles.link} href="">
+                About us
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

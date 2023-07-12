@@ -1,7 +1,7 @@
-import { LangsList, LangsListValue } from 'types/entities/langs';
-import styles from './LanguagesDropdown.module.css';
-import { useState } from 'react';
-import cn from 'classnames';
+import { LangsList, LangsListValue } from "types/entities/langs";
+import styles from "./LanguagesDropdown.module.css";
+import { useState } from "react";
+import cn from "classnames";
 
 export const LanguagesDropdown = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -12,7 +12,7 @@ export const LanguagesDropdown = () => {
   };
 
   const chooseLang = (language: LangsListValue) => {
-    const languageValue = LangsList[language]
+    const languageValue = LangsList[language];
     setLang(languageValue);
     setIsOpen(false);
   };

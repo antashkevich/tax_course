@@ -1,5 +1,5 @@
 import sprite from "icons/icon-sprites.svg";
-import cn from 'classnames';
+import cn from "classnames";
 
 const COLORS = {
   dark: "#111212",
@@ -29,11 +29,12 @@ type Props = {
 };
 
 export const Icon = ({ name, className, color, size, dataTest }: Props) => {
-  const rgbFrom = (color: string) => COLORS[color as keyof typeof COLORS] || color;
+  const rgbFrom = (color: string) =>
+    COLORS[color as keyof typeof COLORS] || color;
 
   const baseClassName = `icon-${name}`;
 
-  const classes = cn('icon', baseClassName, className);
+  const classes = cn("icon", baseClassName, className);
 
   const style = {
     fill: color ? rgbFrom(color) : undefined,

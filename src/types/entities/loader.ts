@@ -1,3 +1,3 @@
 export type LoaderType = {
-  staticPosition?: boolean,
-}
+  staticPosition?: boolean;
+};
