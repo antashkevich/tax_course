@@ -6,6 +6,12 @@ type IFormInput = {
   firstName: string;
   lastName: string;
   country: string;
+  address: string;
+  phone: string;
+  email: string;
+  isAcount: boolean;
+  textarea: string;
+  payment: boolean;
 };
 
 export const Contacts = () => {
@@ -27,21 +33,23 @@ export const Contacts = () => {
             <label className={styles.labelColumn}>
               <span>First name *</span>
               <input
-                className={styles.input}
+                className={cn(styles.input, {[styles.inputError as string]: errors.firstName })}
                 {...register("firstName", { required: true, maxLength: 20 })}
                 type="text"
                 placeholder="First name"
               />
+              {errors.firstName?.type === 'required' && <p>First name is required</p>}
             </label>
 
             <label className={styles.labelColumn}>
               <span>Last name *</span>
               <input
-                className={styles.input}
+               className={cn(styles.input, {[styles.inputError as string]: errors.lastName })}
                 {...register("lastName", { required: true, maxLength: 20 })}
                 type="text"
                 placeholder="Last name"
               />
+              {errors.lastName?.type === 'required' && <p>Last name is required</p>}
             </label>
           </div>
 
@@ -60,33 +68,42 @@ export const Contacts = () => {
             <label className={styles.labelColumn}>
               <span>Street address *</span>
               <input
-                className={styles.input}
+                className={cn(styles.input, {[styles.inputError as string]: errors.address })}
+                {...register("address", { required: true})}
                 type="text"
                 placeholder="Street address"
               />
+              {errors.address?.type === 'required' && <p>Last name is required</p>}
             </label>
           </div>
 
           <div className={cn(styles.formField, styles.formFieldFlex)}>
             <label className={styles.labelColumn}>
               <span>Phone *</span>
-              <input className={styles.input} type="text" placeholder="Phone" />
+              <input
+               className={cn(styles.input, {[styles.inputError as string]: errors.phone })}
+                {...register("phone", { required: true})}
+                type="text"
+                placeholder="Phone" />
+                {errors.phone?.type === 'required' && <p>Phone is required</p>}
             </label>
 
             <label className={styles.labelColumn}>
               <span>Email address *</span>
               <input
-                className={styles.input}
+               className={cn(styles.input, {[styles.inputError as string]: errors.email })}
+                {...register("email", { required: true})}
                 type="email"
                 placeholder="Email address"
               />
+              {errors.email?.type === 'required' && <p>Email is required</p>}
             </label>
           </div>
 
           <div className={styles.formField}>
             <label>
               <span>Create an account?</span>
-              <input type="checkbox" />
+              <input type="checkbox" {...register("isAcount")} />
             </label>
           </div>
 
@@ -95,6 +112,7 @@ export const Contacts = () => {
             <p>Order notes</p>
             <textarea
               className={styles.textarea}
+              {...register("textarea")}
               placeholder="Order notes"
             ></textarea>
           </div>
@@ -106,12 +124,17 @@ export const Contacts = () => {
           <div>
             <label>
               <span>Direct bank transfer</span>
-              <input type="radio" name="payment" checked />
+              <input type="radio"
+                {...register("payment", { required: true})}
+                name="payment"
+                defaultChecked />
             </label>
 
             <label>
               <span>Cash on delivery</span>
-              <input type="radio" name="payment" />
+              <input type="radio"
+                {...register("payment", { required: true})}
+                name="payment" />
             </label>
 
             <button className={styles.btnFormSubmit}>Order</button>
