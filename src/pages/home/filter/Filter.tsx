@@ -30,7 +30,7 @@ export const Filter: FC<FilterPopsType> = ({
       {(Object.keys(ProductsCategories) as ProductCategoriesKeys[]).map(category => (
         <button
           className={cn(styles.buttonFilter, {
-            [styles.buttonFilterActive]: category === buttonActiveClass,
+            [styles.buttonFilterActive as string]: category === buttonActiveClass,
           })}
           onClick={() =>
             filterCategoryProducts(category)

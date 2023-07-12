@@ -6,7 +6,7 @@ import { FC } from 'react'
 export const Loader: FC<LoaderType> = ({staticPosition}) => {
   return (
     <div className={cn(styles.loader, {
-      [styles.loaderStatic]: staticPosition,
+      [styles.loaderStatic as string]: staticPosition,
     })}>Loader</div>
   )
 }

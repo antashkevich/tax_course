@@ -24,7 +24,7 @@ export const LanguagesDropdown = () => {
       </button>
       <ul
         className={cn(styles.langList, {
-          [styles.langListOpen]: isOpen,
+          [styles.langListOpen as string]: isOpen,
         })}
       >
         {(Object.keys(LangsList) as LangsListValue[]).map((language) => (
