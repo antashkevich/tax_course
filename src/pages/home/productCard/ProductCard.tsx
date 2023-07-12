@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { Product } from "types/entities/product";
-import styles from "./productCard.module.css"
+import { Link } from 'react-router-dom';
+import { Product } from 'types/entities/product';
+import styles from './productCard.module.css'
 
-type Props = {
+type ProductProps = {
   product: Product
 }
 
-export const ProductCard: React.FC<Props> = ({ product}) => {
+export const ProductCard: React.FC<ProductProps> = ({ product}) => {
   return (
     <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
       <div className={styles.productImageContainer}>

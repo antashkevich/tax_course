@@ -4,3 +4,5 @@ export enum LangsList {
   fr = 'fr',
   it = 'it',
 }
+
+export type LangsListValue = keyof typeof LangsList
