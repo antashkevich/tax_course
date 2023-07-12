@@ -9,3 +9,58 @@
   max-width: 800px;
   margin: 0 auto 40px;
 }
+
+.subtitle {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-heights-h2);
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  gap: 48px;
+}
+
+.fromSection {
+  flex: 1 0;
+}
+
+.formField {
+  margin-bottom: 16px;
+}
+
+.formFieldFlex {
+  display: flex;
+  gap: 24px;
+}
+
+.formFieldFlex .labelColumn {
+  flex: 1 0;
+}
+
+.labelColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  height: 48px;
+  padding: 0 16px;
+}
+
+.textarea {
+  resize: none;
+  height: 140px;
+  width: 100%;
+  padding: 16px;
+}
+
+.btnFormSubmit {
+  color: var(--color-white);
+  width: 84px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-red);
+}
