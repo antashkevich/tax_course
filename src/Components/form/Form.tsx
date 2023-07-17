@@ -26,7 +26,7 @@ export const Form = () => {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.fromSection}>
         <h2 className={styles.subtitle}>Billing details</h2>
-        <div className={cn(styles.formField, styles.formFieldFlex)}>
+        <fieldset className={cn(styles.formField, styles.formFieldFlex)}>
           <Input
             type={"text"}
             label={"firstName"}
@@ -44,9 +44,9 @@ export const Form = () => {
             errors={errors}
             className={"column"}
           />
-        </div>
+        </fieldset>
 
-        <div className={styles.formField}>
+        <fieldset className={styles.formField}>
           <label className={styles.labelColumn}>
             <span>Country *</span>
             {/* <select {...register("country")}>
@@ -55,9 +55,9 @@ export const Form = () => {
               <option value="other">other</option>
             </select> */}
           </label>
-        </div>
+        </fieldset>
 
-        <div className={styles.formField}>
+        <fieldset className={styles.formField}>
           <Input
             type={"text"}
             label={"address"}
@@ -67,9 +67,9 @@ export const Form = () => {
             className={"column"}
             required
           />
-        </div>
+        </fieldset>
 
-        <div className={cn(styles.formField, styles.formFieldFlex)}>
+        <fieldset className={cn(styles.formField, styles.formFieldFlex)}>
           <Input
             type={"text"}
             label={"errors"}
@@ -87,7 +87,7 @@ export const Form = () => {
             className={"column"}
             required
           />
-        </div>
+        </fieldset>
 
         <div className={styles.formField}>
           {/* <label>
@@ -96,14 +96,14 @@ export const Form = () => {
           </label> */}
         </div>
 
-        <div className={styles.formField}>
+        <fieldset className={styles.formField}>
           <h2 className={styles.subtitle}>Additional information</h2>
           <Textarea
             label={"textarea"}
             value={"Order notes"}
             register={register}
           />
-        </div>
+        </fieldset>
       </div>
 
       <div className={styles.fromSection}>
